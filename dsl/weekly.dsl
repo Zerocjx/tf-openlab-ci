@@ -15,6 +15,7 @@ pipelineJob('weekly_intel_testbed') {
 
     triggers {
         scm('H 0 * * 5')
+        cron('H 0 * * 5')
     }
     
     definition {
