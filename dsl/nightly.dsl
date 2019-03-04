@@ -8,7 +8,7 @@ pipelineJob('nightly_intel_testbed') {
           url(gitUrl)
           name("origin")
         }
-        branch("*/master")
+        branch("*/dev")
       }
     }
 
@@ -25,7 +25,7 @@ pipelineJob('nightly_intel_testbed') {
                         url(gitUrl)
                         name("origin")
                     }
-                    branch("*/master")
+                    branch("*/dev")
                     extensions { }
                 }
             }

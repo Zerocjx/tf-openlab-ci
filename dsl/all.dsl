@@ -8,7 +8,7 @@ job('nightly_seed') {
           url(gitUrl)
           name("origin")
         }
-        branch("*/master")
+        branch("*/dev")
       }
     }
 
@@ -34,7 +34,7 @@ job('weekly_seed') {
           name("origin")
           credentials('Teamforge')
         }
-        branch("*/master")
+        branch("*/dev")
       }
     }
 
@@ -60,7 +60,7 @@ job('release_seed') {
           name("origin")
           credentials('Teamforge')
         }
-        branch("*/master")
+        branch("*/dev")
       }
     }
 
@@ -86,7 +86,7 @@ job('smoke_seed') {
           name("origin")
           credentials('Teamforge')
         }
-        branch("*/master")
+        branch("*/dev")
       }
     }
 

@@ -26,7 +26,7 @@ pipelineJob('weekly_intel_testbed') {
                         url(ciUrl)
                         name("origin")
                     }
-                    branch("*/master")
+                    branch("*/dev")
                     extensions { }
                 }
             }
