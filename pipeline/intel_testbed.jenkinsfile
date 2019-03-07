@@ -35,7 +35,7 @@ pipeline {
             }
             post {
                 always {
-                    perfpublisher(name:"perf_pmd.xml,perf_iperf.xml",threshold:"",healthy:"",unhealthy:"",metrics:"")
+                    perfpublisher(name:"perf_pmd.xml,perf_iperf.xml",threshold:"",unstableThreshold:"",healthy:"",unhealthy:"",metrics:"",parseAllMetrics:"")
                     cleanWs()
                 }
             }
