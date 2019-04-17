@@ -8,20 +8,20 @@ import paramiko
 
 server_list = {
         "controller": {
-                "ipaddr": "10.10.10.18",
+                "ipaddr": "192.168.0.14",
                 "user": "root",
-                "password": "tester"
+                "password": "fnling"
             },
         "node1": {
-                "ipaddr": "10.10.10.14",
+                "ipaddr": "192.168.0.14",
                 "user": "root",
-                "password": "tester",
+                "password": "fnling",
                 "vm_ip": "169.254.0.6"
             },
         "node2": {
-                "ipaddr": "10.10.10.95",
+                "ipaddr": "192.168.0.14",
                 "user": "root",
-                "password": "tester",
+                "password": "fnling",
                 "vm_ip": "169.254.0.13"
             }
         }
