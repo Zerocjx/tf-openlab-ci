@@ -26,9 +26,9 @@ docker exec $DEV_CONTAINER_ID git --git-dir=$VROUTER_DIR/.git --work-tree=$VROUT
 docker exec $DEV_CONTAINER_ID rm -rf $CONTRAIL_DIR/build/production/vrouter/dpdk/contrail-vrouter-dpdk
 
 #TODO add proxy automatically
-docker exec -e http_proxy=http://192.168.0.1:8123 -e https_proxy=http://192.168.0.1:8123 $DEV_CONTAINER_ID make -C $DEV_ENV_DIR sync
+docker exec -e http_proxy=http://10.108.146.102:8123 -e https_proxy=http://10.108.146.102:8123 $DEV_CONTAINER_ID make -C $DEV_ENV_DIR sync
 
-docker exec -e http_proxy=http://192.168.0.1:8123 -e https_proxy=http://192.168.0.1:8123 $DEV_CONTAINER_ID scons -C /root/contrail -j 2 --opt=production
+docker exec -e http_proxy=http://10.108.146.102:8123 -e https_proxy=http://10.108.146.102:8123 $DEV_CONTAINER_ID scons -C /root/contrail -j 2 --opt=production
 
 #use -e option for passing proxy into containers
 # docker exec $DEV_CONTAINER_ID make -C $DEV_ENV_DIR sync
