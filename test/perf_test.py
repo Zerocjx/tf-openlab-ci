@@ -34,7 +34,7 @@ class TFVPPVTestCase(unittest.TestCase):
     """
 
     def _get_VMs_list(self, controller_client):
-        stdin, stdout, stderr = controller_client.exec_command("nova list", timeout=30)
+        stdin, stdout, stderr = controller_client.exec_command("nova list", timeout=30, get_pty=True)
         
         stdout_lines = stdout.readlines()
         stderr_lines = stderr.readlines()
@@ -58,7 +58,7 @@ class TFVPPVTestCase(unittest.TestCase):
 
 
     def _start_VM(self, controller_client, vm_name, skip_err=True):
-        stdin, stdout, stderr = controller_client.exec_command("nova start " + vm_name)
+        stdin, stdout, stderr = controller_client.exec_command("nova start " + vm_name, get_pty=True)
 
         stdout_lines = stdout.readlines()
         stderr_lines = stderr.readlines()
@@ -75,7 +75,7 @@ class TFVPPVTestCase(unittest.TestCase):
 
 
     def _stop_VM(self, controller_client, vm_name, skip_err=True):
-        stdin, stdout, stderr = controller_client.exec_command("nova stop " + vm_name)
+        stdin, stdout, stderr = controller_client.exec_command("nova stop " + vm_name, get_pty=True)
 
         stdout_lines = stdout.readlines()
         stderr_lines = stderr.readlines()
@@ -98,13 +98,13 @@ class TFVPPVTestCase(unittest.TestCase):
         print "Start to update vrouter binary" 
         # TODO: Replace hardcoded core numbers ("10-17" in the command below) with input from a config file or environment
         # in order to support hardware platforms with different CPU core topologies
-        stdin, stdout, stderr = node_client.exec_command("./change_vrouter_cores.sh contrail-vrouter-dpdk-ci 10-17", timeout=120)
+        stdin, stdout, stderr = node_client.exec_command("./change_vrouter_cores.sh contrail-vrouter-dpdk-ci 10-17", timeout=120, get_pty=True)
         for line in stdout.readlines():
             print line
 
         print "Check the contrail-vrouter status, wait unit it becomes active"
         for i in range(5):
-            stdin, stdout, stderr = node_client.exec_command("contrail-status", timeout=30)
+            stdin, stdout, stderr = node_client.exec_command("contrail-status", timeout=30, get_pty=True)
             for line in stdout.readlines():
                 print line
                 if "agent: active" in line:
